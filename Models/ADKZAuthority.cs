@@ -8,6 +8,6 @@ namespace ADKZProject.Models
 {
     public class ADKZAuthority: AuthorizeAttribute
     {
-
+        // init
     }
 }
