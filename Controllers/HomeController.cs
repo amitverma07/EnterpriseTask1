@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace EnterpriseTask1.Controllers
+namespace ADKZProject.Controllers
 {
     //[ADKZAuthority]
     public class HomeController : Controller
