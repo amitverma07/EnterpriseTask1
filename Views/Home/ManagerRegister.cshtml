@@ -1,0 +1,30 @@
+﻿@model ADKZProject.Models.ManagerModel
+
+<h2 style="color:orange">ManagerRegister</h2>
+<h2>@ViewBag.message</h2>
+<div>
+<div style="width:40%;float:left">
+    <h2 style="color:orange">Manager Register</h2>
+    @using (Html.BeginForm())
+    { 
+        @Html.ValidationSummary()
+        @Html.LabelFor(m => m.Name)
+        <br />
+        @Html.TextBoxFor(r => r.Name)
+       <br />
+        @Html.LabelFor(m => m.Email)
+        <br />
+        @Html.TextBoxFor(r => r.Email)
+        <br />
+        @Html.LabelFor(m => m.Password)
+        <br />
+        @Html.PasswordFor(r => r.Password)
+        <br />
+        @Html.LabelFor(m => m.ConfirmPassword)
+        <br />
+        @Html.PasswordFor(r => r.ConfirmPassword)
+        <br /><br />
+        <input type="submit" value="Submit" />
+    }
+</div>
+</div>

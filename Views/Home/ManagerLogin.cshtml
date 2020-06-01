@@ -1,0 +1,27 @@
+﻿@model ADKZProject.Models.ManagerModel
+
+<h2 style="color:orange">ManagerLogin</h2>
+
+<div style="width:40%;float:left">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        @Html.LabelFor(m => m.Name)
+        <br />
+        @Html.TextBoxFor(r => r.Name)
+        <br />
+        @Html.LabelFor(m => m.Email)
+        <br />
+        @Html.TextBoxFor(m => m.Email)
+        <br />
+        @Html.LabelFor(m => m.Password)
+        <br />
+        @Html.PasswordFor(m => m.Password)
+        <br /><br />
+        <input type="submit" value="Submit" />
+    }
+</div>
+
+<div>
+    @Html.ActionLink("managerRegister","ManagerRegister")
+</div>
