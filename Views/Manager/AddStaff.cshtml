@@ -1,0 +1,39 @@
+﻿@model ADKZProject.Models.StaffModel
+@{
+    ViewBag.Title = "AddStaff";
+}
+
+<h2 style="color:orange">AddStaff</h2>
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        @Html.LabelFor(m => m.Name)
+        <br />
+        @Html.TextBoxFor(r => r.Name)
+        <br />
+        @Html.LabelFor(m => m.Email)
+        <br />
+        @Html.TextBoxFor(r => r.Email)
+        <br />
+        @Html.LabelFor(m => m.Password)
+        <br />
+        @Html.PasswordFor(r => r.Password)
+        <br />
+        @Html.LabelFor(m => m.ConfirmPassword)
+        <br />
+        @Html.PasswordFor(r => r.ConfirmPassword)
+        <br />
+        @Html.LabelFor(m => m.Salary)
+        <br />
+        @Html.TextBoxFor(r => r.Salary)
+        <br />
+        @Html.LabelFor(m => m.Phone)
+        <br />
+        @Html.TextBoxFor(r => r.Phone)
+        <br /><br />
+        <input type="submit" value="Submit" />
+    }
+</div>
+

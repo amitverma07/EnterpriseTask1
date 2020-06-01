@@ -1,0 +1,37 @@
+﻿@model ADKZProject.Models.Staff
+@{
+    ViewBag.Title = "EditStaff";
+}
+
+<h2>EditStaff</h2>
+
+<div>
+    @using (Html.BeginForm("EditStaff", "Manager", FormMethod.Post))
+    {
+        @Html.ValidationSummary()
+        @Html.HiddenFor(s => s.Id)
+        <br />
+        @Html.LabelFor(m => m.Name)
+        <br />
+        @Html.TextBoxFor(r => r.Name)
+        <br />
+        @Html.LabelFor(m => m.Email)
+        <br />
+        @Html.TextBoxFor(r => r.Email)
+        <br />
+       <p>Please Change Your Password</p>
+        <br />
+        @Html.PasswordFor(r => r.Password)
+        <br />
+        @Html.LabelFor(m => m.Salary)
+        <br />
+        @Html.TextBoxFor(r => r.Salary)
+        <br />
+        @Html.LabelFor(m => m.Phone)
+        <br />
+        @Html.TextBoxFor(r => r.Phone)
+        <br /><br />
+        <input type="submit" value="Submit" />
+        <br />
+    }
+</div>

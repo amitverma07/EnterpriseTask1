@@ -1,0 +1,33 @@
+﻿@model ADKZProject.Models.ProjectModel
+@{
+    ViewBag.Title = "AddProject";
+}
+
+<h2>AddProject</h2>
+<div>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+
+            @Html.LabelFor(m => m.ProjectTitle)
+            <br />
+            @Html.TextAreaFor(r => r.ProjectTitle)
+            <br />
+            @Html.LabelFor(m => m.ProjectContent)
+            <br />
+            @Html.TextAreaFor(r => r.ProjectContent)
+            <br />
+            @Html.LabelFor(m => m.Budget)
+            <br />
+            @Html.TextBoxFor(r => r.Budget)
+            <br />
+            @Html.LabelFor(r=>r.Deadline)
+            <br />
+            @Html.TextBoxFor(r=>r.Deadline)
+
+        <br /><br />
+        <input type="submit" value="Submit" />
+    }
+    </div>
+</div>

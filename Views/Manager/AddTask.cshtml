@@ -1,0 +1,30 @@
+﻿@model ADKZProject.Models.TaskModel
+@{
+    ViewBag.Title = "AddTask";
+}
+
+<h2>AddTask</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+
+        @Html.LabelFor(t=>t.Title)
+        <br />
+        @Html.TextAreaFor(t=>t.Title)
+        <br />
+        @Html.LabelFor(t=>t.Content)
+        <br />
+        @Html.TextAreaFor(t=>t.Content)
+        <br />
+        @Html.LabelFor(t=>t.Deadline)
+        <br />
+        @Html.TextBoxFor(t=>t.Deadline)
+        <br />
+        @Html.LabelFor(t=>t.StaffId)
+        <br />
+        @Html.DropDownList("Staffs")
+        <br />
+        <input type="submit" value="Submit" />
+    }
+</div>

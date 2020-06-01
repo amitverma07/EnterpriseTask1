@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "ChangePriority";
+}
+
+<h2>ChangePriority</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.TextBox("Priority")
+        <input type="submit" value="Submit" />
+    }
+</div>
