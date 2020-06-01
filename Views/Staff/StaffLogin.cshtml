@@ -1,0 +1,23 @@
+﻿@model ADKZProject.Models.StaffModel
+@{
+    ViewBag.Title = "StaffLogin";
+}
+
+<h2>StaffLogin</h2>
+
+
+<div style="width:40%;float:left">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        @Html.LabelFor(s => s.Email)
+        <br />
+        @Html.TextBoxFor(s => s.Email)
+        <br />
+        @Html.LabelFor(s => s.Password)
+        <br />
+        @Html.PasswordFor(s => s.Password)
+        <br /><br />
+        <input type="submit" value="Submit" />
+    }
+</div>

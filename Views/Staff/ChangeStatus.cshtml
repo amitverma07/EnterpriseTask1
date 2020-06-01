@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "ChangeStatus";
+}
+
+<h2>ChangeStatus</h2>
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.TextBox("Status")
+        <input type="submit"value="Submit" />
+    }
+</div>

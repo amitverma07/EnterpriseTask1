@@ -1,0 +1,38 @@
+﻿@model List<ADKZProject.Models.Task>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome @ViewBag.name</h2>
+
+<div style="width:45%;float:left">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <h3 style="color:orange">Task Title: @item.Title</h3>
+            <p>Task Content: @item.Content</p>
+            <p>Project ID: @item.ProjectId</p>
+            <p>Create Time: @item.CreateTime</p>
+            <p>Deadline: @item.Deadline</p>
+            <p>Is Finished: @item.IsFinished</p>
+            <p>Priority: @item.Priority  </p>
+            <p>Status: @item.Status  <span><a href="@Url.Action("ChangeStatus","Staff", new { id = item.Id})">Change Status</a></span></p>
+            <p>Finished Time: @item.FinishTime </p>
+        }
+    }
+
+</div>
+
+<div style="width:45%;float:right">
+    @using (Html.BeginForm("Message", "Staff", new { id=ViewBag.id}))
+    {
+        <h2>Message Area</h2>
+        <p>Message Title</p>
+        @Html.TextArea("Title")
+        <p>Message Content</p>
+        @Html.TextArea("Content")
+        <br />
+        <input type="submit"value="Submit" />
+    }
+</div>
