@@ -34,7 +34,10 @@
 
     <br /><br /><br /><br />
     <div>
-        <h3>Message Box</h3>
+
+        @Html.ActionLink("Notifications", "CheckAllNotification", "Manager")
+        <br />
+        <h3>UnRead Message Box</h3>
         @foreach (var item in ViewBag.notification)
         {
             <div style="background-color:lightgray;padding:10px">
@@ -43,6 +46,7 @@
             </div>
             <br /><br />
         }
+
     </div>
 </div>
 
@@ -54,6 +58,8 @@
     <br />
     <h3>Projects List</h3>
     <div>
+        <h3> @Html.ActionLink("UnFinished Task Beyond Deadline", "UnfinishedWithDeadline", "Manager") </h3>
+
         @foreach (var item in ViewBag.Projects)
         {
             <div style="border:1px solid;background-color:lightblue;margin:15px;padding:5px">
@@ -95,8 +101,4 @@
 
         }
     </div>
-
-    <br /><br />
-
-
 </div>

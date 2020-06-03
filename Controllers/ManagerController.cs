@@ -29,7 +29,7 @@ namespace ADKZProject.Controllers
             {
                 return View(new StaffModel());
             }
-           
+
             var managerEmail = Session["LoginName"].ToString();
             var managerId = db.Managers.Where(m => m.Email == managerEmail).FirstOrDefault().Id;
 
@@ -66,10 +66,10 @@ namespace ADKZProject.Controllers
         public ActionResult EditStaff(Staff s)
         {
             db.Staffs.AddOrUpdate(s);
-            int r=db.SaveChanges();
+            int r = db.SaveChanges();
             if (r > 0)
             {
-                return Redirect(Url.Action("Index","Home"));
+                return Redirect(Url.Action("Index", "Home"));
             }
             return Redirect(Url.Action("EditStaff", "Manager", new { id = s.Id }));
         }
@@ -103,16 +103,16 @@ namespace ADKZProject.Controllers
         {
             var managerEmail = Session["LoginName"].ToString();
             var managerId = db.Managers.Where(m => m.Email == managerEmail).FirstOrDefault().Id;
-            ViewBag.Staffs = new SelectList(db.Staffs.Where(s=>s.ManagerId==managerId), "Id", "Name");
+            ViewBag.Staffs = new SelectList(db.Staffs.Where(s => s.ManagerId == managerId), "Id", "Name");
             return View();
         }
         [HttpPost]
-        public ActionResult AddTask(TaskModel task,Guid projectId,Guid Staffs)
+        public ActionResult AddTask(TaskModel task, Guid projectId, Guid Staffs)
         {
             var managerEmail = Session["LoginName"].ToString();
             var managerId = db.Managers.Where(m => m.Email == managerEmail).FirstOrDefault().Id;
             ViewBag.Staffs = new SelectList(db.Staffs.Where(s => s.ManagerId == managerId), "Id", "Name");
-            
+
             bool isSuccess = TaskHelper.AddTask(task, projectId, Staffs, db);
             if (isSuccess)
             {
@@ -123,7 +123,7 @@ namespace ADKZProject.Controllers
 
         public ActionResult DeleteProject(Guid ProjectId)
         {
-            bool isSuccess= projectHelper.DeleteProject(ProjectId, db);
+            bool isSuccess = projectHelper.DeleteProject(ProjectId, db);
             if (isSuccess)
             {
                 return Redirect(Url.Action("Index", "Home"));
@@ -155,12 +155,27 @@ namespace ADKZProject.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ChangePriority(Guid id,int Priority)
+        public ActionResult ChangePriority(Guid id, int Priority)
         {
-            var x= db.Tasks.Find(id);
+            var x = db.Tasks.Find(id);
             x.Priority = Priority;
             db.SaveChanges();
             return Redirect(Url.Action("Index", "Home"));
+        }
+
+        public ActionResult CheckAllNotification()
+        {
+            var notifications = db.Notifications;
+            return View(notifications);
+        }
+
+
+        public ActionResult UnfinishedWithDeadline()
+        {
+            var PassedDeadLineTask = db.Tasks
+                .Where(t => t.IsFinished == false && t.Deadline < DateTime.Now)
+                .ToList();
+            return View(PassedDeadLineTask);
         }
     }
 }
