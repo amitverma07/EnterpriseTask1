@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "UnfinishedWithDeadline";
+}
+
+<h2>UnfinishedWithDeadline</h2>
+
+<div>
+    @foreach (var task in Model)
+    {
+        <div style="padding:5px;margin:10px;background-color:white">
+            <h5 style="color:deepskyblue">Task Title: @task.Title</h5>
+            <p>Task StaffId: @task.StaffId</p>
+            <p>Create Time: @task.CreateTime</p>
+            <p>Deadline: @task.Deadline</p>
+            <p>Finished Time: @task.FinishTime</p>
+            <p>IsFinished: @task.IsFinished</p>
+            <p>Status: @task.Status</p>
+
+            <br />
+
+            <p>Content: @task.Content</p><br />
+
+        </div>
+    }
+</div>

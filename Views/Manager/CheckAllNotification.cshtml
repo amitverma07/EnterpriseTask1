@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "CheckAllNotification";
+}
+
+<h2>CheckAllNotification</h2>
+
+@foreach (var item in Model)
+{
+    <div style="background-color:lightgray;padding:10px">
+        <a href="@Url.Action("ReadMessage","Manager", new { id = item.Id})"><p>@item.Title</p></a>
+        <p>Is Checked: @item.IsChecked</p>
+    </div>
+    <br />
+    <br />
+}
