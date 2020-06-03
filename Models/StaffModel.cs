@@ -9,11 +9,11 @@ namespace ADKZProject.Models
     public class StaffModel
     {
         [Required(ErrorMessage = "You Name is required {0}")]
-        [Display(Name="User Name")]
+        [Display(Name = "User Name")]
         [StringLength(maximumLength: 20, MinimumLength = 6, ErrorMessage = "Too long or too short")]
         public string Name { get; set; }
         [Required(ErrorMessage = "You Email is required {0}")]
-        [EmailAddress,Display(Name = "User Email")]
+        [EmailAddress, Display(Name = "User Email")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "You Password is required {0}")]
@@ -25,7 +25,7 @@ namespace ADKZProject.Models
         [Display(Name = "Confirm password")]
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "Are you Kidding me?")]
         public string ConfirmPassword { get; set; }
-        [Range(110,500,ErrorMessage ="Too {0} {1}")]
+        [Range(110, 500, ErrorMessage = "Too {0} {1}")]
         public decimal Salary { get; set; }
         public Nullable<int> Phone { get; set; }
     }

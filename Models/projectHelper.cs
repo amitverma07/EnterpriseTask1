@@ -7,7 +7,7 @@ namespace ADKZProject.Models
 {
     public static class projectHelper
     {
-        public static bool AddProject(Guid id, ProjectModel  p,Context c)
+        public static bool AddProject(Guid id, ProjectModel p, Context c)
         {
             var project = new Project();
             project.ManagerId = id;
@@ -19,7 +19,7 @@ namespace ADKZProject.Models
             project.Priority = 1;
             project.ProjectContent = p.ProjectContent;
             c.Projects.Add(project);
-            int r=c.SaveChanges();
+            int r = c.SaveChanges();
             if (r > 0)
             {
                 return true;
@@ -45,7 +45,7 @@ namespace ADKZProject.Models
             {
                 return false;
             }
-            
+
         }
     }
 }

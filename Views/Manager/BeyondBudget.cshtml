@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "BeyondBudget";
+}
+
+<h2>BeyondBudget</h2>
+
+<div>
+     @foreach (var item in Model)
+        {
+            <div style="border:1px solid;background-color:lightblue;margin:15px;padding:5px">
+                <h2 style="color:orange">Title: @item.ProjectTitle</h2>
+                <p>Create Time: @item.CreateTime</p>
+                <p>Deadline: @item.Deadline</p>
+                <p>Budget: @item.Budget</p>
+                <p>RealBudget: @item.RealBudget</p>
+                <p>IsFinished: @item.IsFinished</p>
+                <p>Priority: @item.Priority  </p>
+                <p>Content: @item.ProjectContent</p>
+
+                <div>
+                    @if (item.Tasks != null)
+                    {
+                        foreach (var task in item.Tasks)
+                        {
+                            <div style="padding:5px;margin:10px;background-color:white">
+                                <h5 style="color:deepskyblue">Task Title: @task.Title</h5>
+                                <p>Task StaffId: @task.StaffId</p>
+                                <p>Create Time: @task.CreateTime</p>
+                                <p>Deadline: @task.Deadline</p>
+                                <p>Finished Time: @task.FinishTime</p>
+                                <p>IsFinished: @task.IsFinished</p>
+                                <p>Status: @task.Status</p>
+                                 <br />
+
+                                <p>Content: @task.Content</p><br />
+                                  </div>
+                        }
+                    }
+
+                </div>
+                 </div>
+        }
+</div>

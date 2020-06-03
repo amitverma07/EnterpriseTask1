@@ -12,7 +12,7 @@ namespace ADKZProject.Models
         [Required]
         [MaxLength(100)]
         public string Title { get; set; }
-        [Required,MaxLength(500)]
+        [Required, MaxLength(500)]
         public string Content { get; set; }
         public Guid StaffId { get; set; }//Sender
         public Staff Staff { get; set; }

@@ -177,5 +177,11 @@ namespace ADKZProject.Controllers
                 .ToList();
             return View(PassedDeadLineTask);
         }
+
+        public ActionResult BeyondBudget()
+        {
+            var x = db.Projects.Where(p => p.IsFinished == true && p.RealBudget - p.Budget > 0);
+            return View(x);
+        }
     }
 }

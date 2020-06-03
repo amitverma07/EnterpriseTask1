@@ -11,8 +11,8 @@ namespace ADKZProject.Models
     {
         public Staff()
         {
-           this. Tasks = new HashSet<Task>();
-           this. Notifications = new HashSet<Notification>();
+            this.Tasks = new HashSet<Task>();
+            this.Notifications = new HashSet<Notification>();
         }
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
@@ -32,7 +32,7 @@ namespace ADKZProject.Models
         [Required]
         public decimal Salary { get; set; }
 
-       public Guid ManagerId { get; set; }
+        public Guid ManagerId { get; set; }
         public virtual Manager Manager { get; set; }
     }
 }

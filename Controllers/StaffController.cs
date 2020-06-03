@@ -22,6 +22,7 @@ namespace ADKZProject.Controllers
                 ViewBag.name = Email;
                 ViewBag.id = id;
                 var x = db.Tasks.Where(t => t.StaffId == id).ToList();
+
                 return View(x);
             }
             else
@@ -51,7 +52,7 @@ namespace ADKZProject.Controllers
             }
         }
 
-        public ActionResult Message(Guid id,string Title,string Content)
+        public ActionResult Message(Guid id, string Title, string Content)
         {
             var x = new Notification();
             x.StaffId = id;
@@ -59,7 +60,7 @@ namespace ADKZProject.Controllers
             x.Content = Content;
             x.IsChecked = false;
             x.IsBeyondDeadline = false;
-            
+
             db.Notifications.Add(x);
             db.SaveChanges();
             return Redirect(Url.Action("Index"));
@@ -70,9 +71,9 @@ namespace ADKZProject.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ChangeStatus(Guid id,int Status)
+        public ActionResult ChangeStatus(Guid id, int Status)
         {
-            bool isSuccess= StaffHelper.ChangeStatus(id, Status, db);
+            bool isSuccess = StaffHelper.ChangeStatus(id, Status, db);
             if (isSuccess)
             {
                 return Redirect(Url.Action("Index", "Staff"));

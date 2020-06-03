@@ -30,5 +30,3 @@ namespace ADKZProject.Models
         public int Status { get; set; }
     }
 }
-
-//git test

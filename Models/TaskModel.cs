@@ -11,7 +11,7 @@ namespace ADKZProject.Models
         public Guid StaffId { get; set; }
         public Guid ProjectId { get; set; }
         [Required]
-        [MaxLength(100,ErrorMessage ="Too long")]
+        [MaxLength(100, ErrorMessage = "Too long {0}")]
         public string Title { get; set; }
         [Required]
         [MaxLength(500)]

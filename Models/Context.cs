@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ADKZProject.Models
 {
-    public class Context:DbContext
+    public class Context : DbContext
     {
         public Context() : base("conn") { }
         public DbSet<Staff> Staffs { get; set; }
@@ -20,6 +20,18 @@ namespace ADKZProject.Models
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            /*
+                        modelBuilder.Entity<Staff>()
+                        .HasRequired(c => c.Tasks)
+                        .WithMany()
+                        .WillCascadeOnDelete(false);
+
+                        modelBuilder.Entity<Manager>()
+                       .HasRequired(c => c.Staffs)
+                       .WithMany()
+                       .WillCascadeOnDelete(false);*/
         }
+
+
     }
 }

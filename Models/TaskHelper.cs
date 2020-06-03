@@ -7,7 +7,7 @@ namespace ADKZProject.Models
 {
     public static class TaskHelper
     {
-        public static bool AddTask(TaskModel task, Guid projectId, Guid StaffsId,Context db)
+        public static bool AddTask(TaskModel task, Guid projectId, Guid StaffsId, Context db)
         {
             var x = new Task();
             x.Title = task.Title;
@@ -21,7 +21,7 @@ namespace ADKZProject.Models
             x.Status = 1;
             db.Tasks.Add(x);
             var r = db.SaveChanges();
-            if (r >=0)
+            if (r >= 0)
             {
                 return true;
             }

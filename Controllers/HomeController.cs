@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ADKZProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,7 +20,7 @@ namespace ADKZProject.Controllers
 
                 ViewBag.name = name;
                 var id = db.Managers.Where(m => m.Email == name).FirstOrDefault().Id;
-                ViewBag.Projects = db.Projects.Where(p => p.Manager.Email == name).ToList();
+                ViewBag.Projects = db.Projects.Where(p => p.Manager.Email == name).OrderByDescending(t => t.Priority).ToList();
                 var staff = db.Staffs.Where(s => s.ManagerId == id);
 
                 var projects = db.Projects.Where(p => p.Manager.Email == name);
@@ -48,7 +49,8 @@ namespace ADKZProject.Controllers
                     }
                 }
 
-                ViewBag.notification = db.Notifications.Where(n => n.Staff.ManagerId == id);
+                ViewBag.notification = db.Notifications.Where(n => n.Staff.ManagerId == id && n.IsChecked == false);
+
                 var x = db.Staffs.Where(s => s.ManagerId == id);
 
                 return View(x);
@@ -110,5 +112,6 @@ namespace ADKZProject.Controllers
                 return View();
             }
         }
+
     }
 }

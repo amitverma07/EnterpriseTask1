@@ -11,7 +11,7 @@ namespace ADKZProject.Models
         public Manager()
         {
             this.Staffs = new HashSet<Staff>();
-            this.Projects =new HashSet<Project>();
+            this.Projects = new HashSet<Project>();
         }
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
@@ -24,7 +24,7 @@ namespace ADKZProject.Models
         [MaxLength(20)]
         public string Password { get; set; }
         public Nullable<int> Phone { get; set; }
-       public virtual ICollection<Staff> Staffs { get; set; }
-       public virtual ICollection<Project> Projects { get; set; }
+        public virtual ICollection<Staff> Staffs { get; set; }
+        public virtual ICollection<Project> Projects { get; set; }
     }
 }
